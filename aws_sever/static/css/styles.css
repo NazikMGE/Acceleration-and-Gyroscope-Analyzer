@@ -1,0 +1,327 @@
+/* Загальні стилі */
+body, html {
+    font: bold 14px/1.4 'Open Sans', Arial, sans-serif;
+    background: #ffffff;
+    height: 100%; /* Забезпечення 100% висоти вікна */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Вертикальний макет */
+    gap: 25px;
+}
+
+/* Контейнер для основного контенту */
+main {
+    flex: 1; /* Основний контент займає весь доступний простір */
+}
+
+/* Навігаційна панель */
+.navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Завжди зверху */
+}
+
+/* Контейнер для іконки */
+.icon-container {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+/* Стилі для іконки */
+.navbar-icon {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%; /* Закруглення іконки */
+}
+
+/* Кнопка меню */
+.menu-btn {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    background: #555;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    margin-left: auto;
+    margin-right: 13px;
+}
+
+
+/* Загальні стилі */
+.main-content {
+    display: flex;
+    flex-direction: column; 
+    gap: 20px;
+}
+
+.nav-links {
+    display: none; /* Приховати горизонтальне меню за замовчуванням */
+}
+
+.wrapper {
+    display: none;
+}
+
+.menu-btn {
+    display: block; /* Показати кнопку меню за замовчуванням */
+}
+
+
+.system-state-wrapper {
+    display: flex; /* Активує Flexbox */
+    justify-content: center; /* Горизонтальне вирівнювання */
+    align-items: center; /* Вертикальне вирівнювання */
+}
+
+.system-state {
+    font-size: 20px;
+    color: green;
+}
+
+.command-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Відступ між кнопками */
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button.start {
+    background-color: green;
+    color: white;
+}
+
+button.stop {
+    background-color: red;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.chart-container {
+    display: flex;
+    flex-direction: row; /* Горизонтальне розташування діаграм */
+    gap: 50px; /* Відступ між діаграмами */
+    height: auto;
+    width: 95%; /* Контейнер займає всю доступну ширину */
+    box-sizing: border-box; /* Враховує padding у розмірах */
+    margin: 0 auto; /* Центрування */
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.chart-item {
+    flex: 1; /* Кожна діаграма займає рівну частину простору */
+    min-width: 0; /* Дозволяє елементам зменшуватися в ширину в межах контейнера */
+    height: 30em;
+    min-height: 420px;
+    position: relative; /* Потрібно для коректного позиціонування canvas */
+}
+
+/* Основний футер */
+.footer {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: center; /* Елементи з обох боків */
+    align-items: center;
+}
+
+.container-status-esp32 {
+    display: flex; /* Включаємо флекс-контейнер */
+    justify-content: flex-start; /* Горизонтальне вирівнювання по центру */
+    align-items: center; /* Вертикальне вирівнювання по центру */
+    gap: 10px;
+    width: 60%; /* Ширина контейнера */
+    margin-left: 15px;
+}
+
+div.online-indicator {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+  background-color: #e9af0e;
+  border-radius: 50%;
+  position: relative;
+}
+
+span.blink {
+  display: block;
+  width: 15px;
+  height: 15px;
+  background-color: #e9af0e;
+  opacity: 0.7;
+  border-radius: 50%;
+  animation: blink 1s linear infinite;
+}
+
+h2.online-text {
+    display: inline;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+    text-shadow: 0px 3px 6px rgba(150, 150, 150, 0.2);
+    position: relative;
+}
+
+@keyframes blink {
+  100% { transform: scale(4, 4); 
+          opacity: 0;
+        }
+}
+
+/* Для великих екранів */
+@media (min-width: 768px) {
+    .menu-btn {
+        display: none; /* Приховати кнопку меню */
+    }
+
+    .nav-links {
+        display: flex;
+        justify-content: center; /* Центрує меню */
+        flex-grow: 1; /* Займає весь доступний простір */
+    }
+
+    .nav-links ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links ul li {
+        margin: 0 15px;
+    }
+
+    .nav-links ul li a {
+        padding: 0.7em 3em; /* Як у кнопки */
+        font-size: 12px; /* Розмір шрифту */
+        text-transform: uppercase; /* Великі літери */
+        letter-spacing: 2.5px; /* Інтервали між літерами */
+        font-weight: 500; /* Жирність */
+        color: #000; /* Колір тексту */
+        background-color: #fff; /* Фон */
+        border: none; /* Без рамки */
+        border-radius: 45px; /* Закруглені краї */
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Тінь */
+        transition: all 0.3s ease 0s; /* Анімація */
+        text-decoration: none; /* Прибирає підкреслення */
+        display: inline-block; /* Для кнопкового вигляду */
+        text-align: center; /* Центрує текст */
+    }
+
+    /* Ефект наведення */
+    .nav-links ul li a:hover {
+        background-color: #23c483;
+        box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+        color: #fff;
+        transform: translateY(-5px); /* Підняття кнопки */
+    }
+
+    /* Активна кнопка */
+    .nav-links ul li a.active {
+        background-color: #23c483;
+        color: #fff;
+        font-weight: bold;
+        box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+        transform: translateY(-5px); /* Зберігає підняття */
+    }
+}
+
+/* Для маленьких екранів */
+@media (max-width: 768px) {
+    .chart-container {
+        flex-direction: column; /* Вертикальне розташування на малих екранах */
+    }
+
+
+    .wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: #333;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        clip-path: circle(0% at calc(100% - 35px) 35px);
+        transition: clip-path 0.3s ease-in-out;
+        z-index: 999;
+    }
+
+    /* Список меню */
+    .wrapper ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+
+    .wrapper ul li {
+        margin: 15px 0;
+    }
+
+    .wrapper ul li a {
+        padding: 0.7em 3em; /* Як у кнопки */
+        font-size: 12px; /* Розмір шрифту */
+        text-transform: uppercase; /* Великі літери */
+        letter-spacing: 2.5px; /* Інтервали між літерами */
+        font-weight: 500; /* Жирність */
+        color: #000; /* Колір тексту */
+        background-color: #fff; /* Фон */
+        border: none; /* Без рамки */
+        border-radius: 45px; /* Закруглені краї */
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Тінь */
+        transition: all 0.3s ease 0s; /* Анімація */
+        text-decoration: none; /* Прибирає підкреслення */
+        display: inline-block; /* Для кнопкового вигляду */
+        text-align: center; /* Центрує текст */
+    }
+
+    /* Ефект наведення */
+    .wrapper ul li a:hover {
+        background-color: #23c483;
+        box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+        color: #fff;
+        transform: translateY(-5px); /* Підняття кнопки */
+    }
+
+    /* Активна кнопка */
+    .wrapper ul li a.active {
+        background-color: #23c483;
+        color: #fff;
+        font-weight: bold;
+        box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+        transform: translateY(-5px); /* Зберігає підняття */
+    }
+    
+    .wrapper.open {
+        clip-path: circle(150% at calc(100% - 35px) 35px); /* Анімація розширюється */
+    }
+}

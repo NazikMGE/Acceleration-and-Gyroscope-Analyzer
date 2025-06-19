@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>ESP32 Control Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="icon" href="/static/images/archery-black.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
+    <link rel="icon" href="/static/images/archery-white.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="navbar">
+            <div class="icon-container">
+                <img src="/static/images/archery-white.svg" alt="Icon" class="navbar-icon" />
+            </div>
+
+            <div class="menu-btn" id="menuBtn" aria-label="Menu Button" role="button" tabindex="0"></div>
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/calibration">Calibration</a></li>
+                </ul>
+            </nav>
+        </div>
+    
+        <div class="wrapper" id="menuWrapper">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/calibration">Calibration</a></li>
+            </ul>
+        </div>
+    </header>
+    
+
+    <main class="main-content">
+        <h style="text-align: center; font-size: 28px;">Acceleration and gyroscope analyzer</h>
+        <div class="chart-container">
+            <div class="chart-item">
+                <canvas id="accelChart"></canvas>
+            </div>
+            <div class="chart-item">
+                <canvas id="gyroChart"></canvas>
+            </div>
+        </div>
+        
+        <div class="system-state-wrapper">
+            <div class="system-state" id="systemState" style="font-size: 20px; color: rgb(12, 74, 133);">
+                Система: Невідомо
+            </div>
+        </div>
+        
+        <div class="command-buttons">
+            <button class="start" onclick="sendCommand('START')">START</button>
+            <button class="stop" onclick="sendCommand('STOP')">STOP</button>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container-status-esp32">
+            <div class="online-indicator" id="indicator">
+                <span class="blink" id="blink"></span>
+            </div>
+            <h2 class="online-text" id="status">Завантаження серверу ...</h2>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2024 NULP. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/static/js/navigation.js"></script>
+    <script src="/static/js/main.js"></script>
+</body>
+</html>

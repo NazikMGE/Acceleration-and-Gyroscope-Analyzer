@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>ESP32 Control Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="icon" href="/static/images/archery-black.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
+    <link rel="icon" href="/static/images/archery-white.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="menu-btn" id="menuBtn" aria-label="Menu Button" role="button" tabindex="0"></div>
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/calibration">Calibration</a></li>
+                </ul>
+            </nav>
+        </div>
+    
+        <div class="wrapper" id="menuWrapper">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/calibration">Calibration</a></li>
+            </ul>
+        </div>
+    </header>
+    
+    
+    <main>
+        <h1 style="width: 100%; align-items: center; text-align: center;">Calibration Page</h1>
+    </main>
+
+    <footer class="footer">
+        <div class="container-status-esp32">
+            <div class="online-indicator" id="indicator">
+                <span class="blink" id="blink"></span>
+            </div>
+            <h2 class="online-text" id="status">Завантаження серверу ...</h2>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2024 Your Company. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="/static/js/navigation.js"></script>
+    <script src="/static/js/calibration.js"></script>
+</body>
+</html>
